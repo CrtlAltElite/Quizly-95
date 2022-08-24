@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/CrtlAltElite/Quizly-95#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-graphql": "^0.12.0",
     "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2"
   },
   "devDependencies": {
