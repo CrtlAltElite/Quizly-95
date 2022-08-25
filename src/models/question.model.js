@@ -6,7 +6,7 @@ const questionSchema = new mongoose.Schema(
             type:String,
             required:true
         },
-        correctAnwser:{
+        correctAnswer:{
             type:String,
             required:true
         },

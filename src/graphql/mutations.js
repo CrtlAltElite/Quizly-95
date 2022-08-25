@@ -89,7 +89,7 @@ const createQuiz = {
             const questionItem = new Question(
                 {
                     title: question.title,
-                    correctAnwser:question.correctAnwser,
+                    correctAnswer:question.correctAnswer,
                     order: Number(question.order),
                     quizId: quiz.id    
                 })
@@ -117,9 +117,9 @@ const submitQuiz = {
     async resolve(parent, args){
         try{
             let correct = 0
-            let totalQuestions = args.answers.length
+            let totalQuestions = args.answer?.length
 
-            for (const answer of args.answers){
+            for (const answer of args.answer){
                 const question= await Question.findById(answer.questionId)
                 if (answer.answer.trim().toLowerCase()== question.correctAnswer.trim().toLowerCase()){
                     correct++
@@ -128,7 +128,7 @@ const submitQuiz = {
 
             const score = (correct / totalQuestions) * 100
 
-            const submission = new SubmissionType({
+            const submission = new Submission({
                 userId: args.userId,
                 quizId: args.quizId,
                 score

@@ -118,7 +118,6 @@ const QuizType=new GraphQLObjectType({
             async resolve(parent, args){
                 const submissions = await Submission.find({quizId: parent.id})
                 let score = 0
-                console.log(submissions)
                 for (const sub of submissions){
                     score += submissions.score        
                 }
