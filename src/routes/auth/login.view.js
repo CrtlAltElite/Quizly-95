@@ -1,4 +1,4 @@
 module.exports =(req, res)=>{
-    console.log('Login')
+    // console.log('Login')
     res.render('login')
 }

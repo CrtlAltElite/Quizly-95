@@ -32,7 +32,7 @@ module.exports = async (req, res)=>{
         res.cookie('jwtToken', jwtToken)
         res.redirect('/')
       }catch(e){
-        console.log(e)
+        // console.log(e)
         res.redirect('/auth/register')
 
       }

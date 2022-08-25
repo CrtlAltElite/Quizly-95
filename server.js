@@ -19,6 +19,10 @@ app.set('views', path.join(__dirname, '/src/templates/views'))
 //cookie parse
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
+const {authenticate} = require('./src/middleware/auth')
+app.use(authenticate)
+const {userData}= require('./src/middleware/userData')
+app.use(userData)
 
 
 app.use("/graphql",graphqlHTTP({
@@ -30,13 +34,11 @@ app.use("/graphql",graphqlHTTP({
 //parse our form data .... extended true for nested objects
 app.use(express.urlencoded({extended:true}))
 
-const {authenticate} = require('./src/middleware/auth')
-app.use(authenticate)
 initializeRoutes(app)
 
-app.get("/", (req, res)=>{
-    res.send("hello World!")
-})
+// app.get("/", (req, res)=>{
+//     res.send("hello World!")
+// })
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server listening on ${process.env.PORT}`)
